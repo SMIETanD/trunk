@@ -1,0 +1,41 @@
+doctype html
+html
+  head
+    meta(charset="utf-8" )
+    title #{title}
+    link(rel='stylesheet', href='./styles/letter_number_match.css')
+  body
+  .container
+    .content
+      .content1
+        - if(!lists)
+          .alert There's not questions designed yet!
+        - else
+          .part
+            .num(table_id= '#{lists.set_id}') #{lists.set_id}
+            table
+              tbody
+                - each temp in lists.question
+                  tr(_id='#{temp.question}')
+                    td #{temp.question}
+                    td(type='A')
+                      .info(_id='#{temp.question}') #{temp.part_a}
+                    td.drag(type='B')
+                      .info(_id='#{temp.question}') #{temp.part_b}
+                    - if(temp.part_c)
+                      td.drag(type='c')
+                        .info(_id='#{temp.question}') #{temp.part_c}
+            .inputTip.fadeout
+              .popoverContent <span>WARNING: </span>You haven't typed your answer yet !
+        .tip Tips: Click two items to excahnge their orders!
+        .btns
+          #answer.btn Answer
+          #next.btn.btn_right Next
+        .myprogress
+          .learn0
+
+  #data(style='display:none') #{JSON.stringify(lists)}
+
+  script(type="application/javascript", src="scripts/jquery-2.1.4.min.js")
+  //- script(type="application/javascript", src="scripts/plugin/soundmanager2-jsmin.js")
+  script(type="application/javascript", src="scripts/letter_number_match.js")

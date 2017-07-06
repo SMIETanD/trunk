@@ -1,0 +1,44 @@
+doctype html
+html
+  head
+    meta(charset="utf-8" )
+    title #{title}
+    link(rel='stylesheet', href='./styles/a_given_b_blank.css')
+  body
+  .container  
+    .content
+      - if(!lists)
+        .alert There's not questions designed yet!
+      - else
+        - each item in lists
+          .part
+            .interaction
+              .num(table_id= '#{item._id}') #{item.question}
+              .question 
+                span.ques Question :
+                img.horn(src="../imgs/icon_sound.png" )
+                span.que &nbsp&nbsp&nbsp&nbsp&nbsp#{item.top}
+              .answer
+                span.ques Answer :&nbsp&nbsp&nbsp
+                img.horn(src="../imgs/icon_sound.png" )
+                &nbsp&nbsp&nbsp&nbsp&nbsp
+                input(type='text')
+                .inputTip
+                  .uparrow
+                  .popoverContent <span>WARNING: </span>You haven't typed your answer yet !
+            .next Answer
+            .answers
+              - if (item.bottom)
+                .a1 #{item.bottom}
+              - if (item.bottom_1)
+                .a2 #{item.bottom_1}
+              - if (item.bottom_2)
+                .a3 #{item.bottom_2}
+        .myprogress
+          -each item in lists
+            .learn0
+
+
+  script(type="application/javascript", src="scripts/jquery-2.1.4.min.js")
+  script(type="application/javascript", src="scripts/plugin/soundmanager2-jsmin.js")
+  script(type="application/javascript", src="scripts/a_given_b_blank.js")

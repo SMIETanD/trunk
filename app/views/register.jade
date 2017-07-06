@@ -1,0 +1,36 @@
+extend head
+
+block content
+
+  link(rel='stylesheet', href='./styles/register.css')
+  div.content
+    .register
+      div.top
+        div Register
+      div.form
+        div.info
+          div.tips Enter Your personal info
+          input(type="email" class="form-control" required="required" name='email' placeholder='E-mail')
+          br
+          input(type="text" class="form-control" required="required" name="phone" placeholder="Phone Number")
+          br
+        div.info
+          div.tips Enter your account infomation
+          input(type="text" class="form-control" required="required" name='username' placeholder='User name')
+          br
+          input(type="password" class="form-control" required="required" name="password" placeholder="password")
+          br
+        div.login
+          a(href='/login') Login?
+        div.forget 
+          a(href='/') Back to Main Page?
+        .btn.btn-primary Sign In
+        .message 输入不可为空
+
+  script(type='text/javascript'). 
+    window.onload = function(){
+      document.querySelector('.content').style.minHeight = window.innerHeight - 175 + 'px';
+    }
+  script(type="application/javascript", src="scripts/jquery-2.1.4.min.js")
+  //- script(type="application/javascript", src="scripts/plugin/soundmanager2-jsmin.js")
+  script(type="application/javascript", src="scripts/register.js")

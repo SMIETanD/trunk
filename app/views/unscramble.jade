@@ -1,0 +1,85 @@
+doctype html
+html
+  head
+    meta(charset="utf-8" )
+    title #{title}
+    link(rel='stylesheet', href='./styles/unscramble.css')
+  body
+  .content
+    - if (!audios)
+      .alert.alert-danger There's not questions designed yet!
+    - else
+      - each item in audios
+        - if (item.top)
+          .part.part1
+            .num(table_id= '#{item._id}') #{item.question}
+            .start_time(style='display:none') #{item.start_time}
+            .stop_time(style='display:none') #{item.stop_time}
+            .text 
+              .plain #{item.top}
+              img.horn(src="../imgs/icon_sound.png" )
+            .myinput
+              input(type="text", placeholder="Type your answer here!")
+              .inputTip.fadeout
+                .uparrow
+                .popoverContent <span>WARNING: </span>You haven't typed your answer yet !
+            .scrambled
+              - if (item.U1)
+                span.piece #{item.U1}
+              - if (item.U2)
+                span.piece #{item.U2}
+              - if (item.U3)
+                span.piece #{item.U3}
+              - if (item.U4)
+                span.piece #{item.U4}
+              - if (item.U5)
+                span.piece #{item.U5}
+              - if (item.U6)
+                span.piece #{item.U6}
+              - if (item.U7)
+                span.piece #{item.U7}
+              - if (item.U8)
+                span.piece #{item.U8}
+              - if (item.U9)
+                span.piece #{item.U9}
+        - else
+          .part.part2
+            .num(table_id= '#{item._id}') #{item.question}
+            .start_time(style='display:none') #{item.start_time}
+            .stop_time(style='display:none') #{item.stop_time}
+            .scrambled
+              - if (item.U1)
+                span.piece #{item.U1}
+              - if (item.U2)
+                span.piece #{item.U2}
+              - if (item.U3)
+                span.piece #{item.U3}
+              - if (item.U4)
+                span.piece #{item.U4}
+              - if (item.U5)
+                span.piece #{item.U5}
+              - if (item.U6)
+                span.piece #{item.U6}
+              - if (item.U7)
+                span.piece #{item.U7}
+              - if (item.U8)
+                span.piece #{item.U8}
+              - if (item.U9)
+                span.piece #{item.U9} 
+            .myinput
+              input(type="text", placeholder="Type your answer here!")
+              .inputTip.fadeout
+                .uparrow
+                .popoverContent <span>WARNING: </span>You haven't typed your answer yet !   
+            .text 
+              .plain #{item.bottom}
+              img.horn(src="../imgs/icon_sound.png" )  
+      .myprogress
+        -each item in audios
+          .learn0 
+      #next Next
+
+  script(type="application/javascript", src="scripts/jquery-2.1.4.min.js")
+  script(type="application/javascript", src="scripts/plugin/soundmanager2-jsmin.js")
+  script(type="application/javascript", src="scripts/unscramble.js")
+

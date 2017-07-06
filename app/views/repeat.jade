@@ -1,0 +1,18 @@
+doctype html
+html
+    head
+        meta(charset="utf-8" )
+        title #{title}
+        link(rel='stylesheet', href='./styles/repeat.css')
+    body
+    .text
+        .plain success
+        img.horn(src="../imgs/icon_sound.png" )
+    .content
+        button(id='say' value='say' onclick='getValue()') SAY
+    .div(id='a') I'm listening
+
+    script(type="application/javascript", src="scripts/jquery-2.1.4.min.js")
+    script(type="application/javascript", src="scripts/artyom/artyom.min.js")
+    script(type="application/javascript", src="scripts/repeat.js")
+

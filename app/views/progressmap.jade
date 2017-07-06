@@ -1,0 +1,34 @@
+extend head
+
+block content
+
+  link(rel='stylesheet', href='./styles/progressmap.css')
+  .container  
+    .content
+      #left
+       .leftli Tour1
+       .leftli Tour2
+       .leftli Tour3
+       .leftli Tour4
+       .leftli Tour5
+       .leftli Tour6
+       .leftli Tour7
+       .leftli Tour8
+       .leftli Tour9
+       .leftli Tour10
+       .leftli Tour11
+       .leftli Tour12
+       .leftli Tour13
+       .leftli Tour14
+       .leftli Tour15
+       .leftli Tour16
+       .leftli Tour17
+       .leftli Tour18
+      #right
+
+  script(type='text/javascript'). 
+    window.onload = function(){
+      document.querySelector('.container').style.minHeight = window.innerHeight - 175 + 'px';
+    }
+  script(type="application/javascript", src="scripts/jquery-2.1.4.min.js")
+  script(type="application/javascript", src="scripts/progressmap.js")

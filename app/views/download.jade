@@ -1,0 +1,28 @@
+extend head
+
+block content
+
+  //- link(rel='stylesheet', href='./styles/download.css')
+  .container 
+    p 请选择要下载数据的题型！
+    form(action='download' method='post')
+      select(name = 'select')
+        //-option(value='inter') interactive
+        option(value='narra') narrative
+        option(value='agbb') a_given_b_blank
+        option(value='agbc') a_given_b_cloze
+        option(value='acbg') a_cloze_b_given
+        option(value='unscr') unscramble
+        option(value='l_n_m') letter_number_match
+        option(value='multichoice') multiplechoice
+        option(value='muc') matchupclick
+        option(value='user') user
+      input(type='submit' value='确定')
+    form(action = 'upload' enctype="multipart/form-data" method='post' name = 'uploader')
+      input(type='file' value='上传文件' name = "file" required)
+      input(type='submit' value='确认')
+  script(type='text/javascript'). 
+    window.onload = function(){
+      document.querySelector('.container').style.minHeight = window.innerHeight - 175 + 'px';
+    }
+  script(type="application/javascript", src="scripts/jquery-2.1.4.min.js")
