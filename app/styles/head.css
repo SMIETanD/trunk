@@ -48,7 +48,7 @@ ul,li{
   margin-left: 39px;
   }
 }
-@-moz-keygrames animation_logo11{
+@-moz-keyframes animation_logo11{
   0% {background-size: 0px 0px;
       margin-left: 132px;
   }
@@ -90,7 +90,7 @@ ul,li{
   margin-left: 0px;
   }
 }
-@-moz-keygrames animation_logo12{
+@-moz-keyframes animation_logo12{
   0% {background-size: 0px 0px;
       margin-left: 120px;
   }
@@ -180,7 +180,7 @@ ul,li{
     box-shadow: 2px 2px 30px black;
   }
 }
-@-mozkeyframes animation_logo3{
+@-moz-keyframes animation_logo3{
   0% {
     box-shadow: none;
   }

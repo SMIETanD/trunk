@@ -27,16 +27,16 @@ router.get('/', function(req, res) {
 });
 
 router.get('/login', function (req, res) {
-	if (req.cookies.account != null) {
-		//res.render("back_to_index.jade", {title: "test"});
-		res.send("You have logged. <a href = '/'>Click here to back</a>")
-	}
-	else
-  		res.render("login.jade",{title: "login"});
+    if (req.cookies.account != null) {
+        //res.render("back_to_index.jade", {title: "test"});
+        res.send("You have logged. <a href = '/'>Click here to back</a>")
+    }
+    else
+        res.render("login.jade",{title: "login"});
 });
 
 router.get('/register', function(req, res) {
-  res.render("register.jade",{title: 'Register'});
+    res.render("register.jade",{title: 'Register'});
 });
 
 router.post("/register", user.create);
@@ -110,7 +110,7 @@ router.get('/init_letter', letter.init);
 router.get('/delete_letter', letter.del);
 
 router.get('/download', function(req, res) {
-  res.render("download.jade",{title: 'Register'});
+    res.render("download.jade",{title: 'Register'});
 });
 
 router.post('/download', excel.open);
@@ -119,26 +119,26 @@ router.get('/progressmap', pmap.open);
 router.get('/letslearn',letsl.open);
 
 router.get('/begin_lesson', function(req, res) {
-	var unit = req.query.unit, tour = req.query.tour;
-	var name = path.dirname(__dirname);
-	var obj = xlsx.parse(name + "/app/excel/SCRIPT.xlsx");
-	var data = obj[0].data;
-	var i = 1;
-	for (i = 1; i < data.length; i++) {
-		if (data[i][0] != undefined) {
-			if (data[i][0] != tour)
-				continue;
-			else {
-				while (i < data.length && data[i][1] != unit) {
-					i++;
-				}
-				break;
-			}
-		}
-	}
-	if (i < data.length) {
-		res.redirect('/' + data[i][2] + '?tour=' + tour + '&unit=' + unit + '&set=' + data[i][3]);
-	}
+    var unit = req.query.unit, tour = req.query.tour;
+    var name = path.dirname(__dirname);
+    var obj = xlsx.parse(name + "/app/excel/SCRIPT.xlsx");
+    var data = obj[0].data;
+    var i = 1;
+    for (i = 1; i < data.length; i++) {
+        if (data[i][0] != undefined) {
+            if (data[i][0] != tour)
+                continue;
+            else {
+                while (i < data.length && data[i][1] != unit) {
+                    i++;
+                }
+                break;
+            }
+        }
+    }
+    if (i < data.length) {
+        res.redirect('/' + data[i][2] + '?tour=' + tour + '&unit=' + unit + '&set=' + data[i][3]);
+    }
 });
 
 router.post('/nextType', nextType.getNext);

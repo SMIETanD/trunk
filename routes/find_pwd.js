@@ -5,7 +5,7 @@ var db = mongoose.connection;
 
 var user_list = mongoose.model('Users');
 //设置发送邮箱信息，此处以QQ邮箱做测试
-var transport = nodemailer.createTransport("smtp", {
+var transport = nodemailer.createTransport({
 	host: 'smtp.qq.com',
 	auth: {
 		user: '417275032@qq.com',

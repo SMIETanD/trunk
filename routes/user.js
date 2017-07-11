@@ -3,7 +3,9 @@ var path = require('path');
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-mongoose.connect("mongodb://localhost/learningUser");
+mongoose.connect("mongodb://localhost/learningUser",{
+    useMongoClient: true,
+});
 var db = mongoose.connection;
 db.on('error', function(error) {
     console.log(error);
