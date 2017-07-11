@@ -20,7 +20,7 @@ $(document).ready(function() {
     })
     .done(function(result) {
       if(result.message == 'success') {
-        window.location.href = '/';
+        window.location.href = './';
         console.log('111');
       }
       else {

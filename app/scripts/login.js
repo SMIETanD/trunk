@@ -16,7 +16,7 @@ $(document).ready(function() {
       },
     })
     .done(function(url) {
-      window.location.href='/progressmap';
+      window.location.href='progressmap';
     })
     .fail(function(result) {
       showMessage(JSON.stringify(result));

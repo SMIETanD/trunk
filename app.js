@@ -24,8 +24,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(busboy());
 app.use(session({
-    resave: false,
-    saveUninitialized: true,
+    resave: false, //添加 resave 选项
+    saveUninitialized: true, //添加 saveUninitialized 选项
     secret: 'recommand 128 bytes random string', // 建议使用 128 个字符的随机字符串
     cookie: { maxAge: 60 * 1000 }
 }));
