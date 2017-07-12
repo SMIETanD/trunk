@@ -114,7 +114,26 @@ ul,li{
   margin-left: 0px;
   }
 }
+
 #logos .logo2{
+  display: block;
+}
+
+#logos .logo21{
+  background-image: url('../imgs/header/Logo_bottom_layer_shadow.png');
+  background-size: 310px 75px;
+  background-repeat: no-repeat;
+  top: 20px;
+  left: 18px;
+  display: block;
+  visibility: hidden;
+  animation: animation_logo2 0.8s 2s ease-in forwards;
+  -moz-animation: animation_logo2 0.8s 2s ease-in forwards;
+  -webkit-animation: animation_logo2 0.8s 2s ease-in forwards;
+  -o-animation: animation_logo2 0.8s 2s ease-in forwards;
+}
+
+#logos .logo22{
   background-image: url('../imgs/header/Logo_bottom_layer.png');
   background-size: 305px 60px;
   background-repeat: no-repeat;
@@ -129,34 +148,42 @@ ul,li{
 
 @keyframes animation_logo2{
   0% {
+    visibility: visible;
     opacity: 0;
   }
   100% {
     opacity: 1;
+    visibility: visible;
   }
 }
 @-moz-keyframes animation_logo2{
   0% {
+    visibility: visible;
     opacity: 0;
   }
   100% {
     opacity: 1;
+    visibility: visible;
   }
 }
 @-webkit-keyframes animation_logo2{
   0% {
+    visibility: visible;
     opacity: 0;
   }
   100% {
     opacity: 1;
+    visibility: visible;
   }
 }
 @-o-keyframes animation_logo2{
   0% {
+    visibility: visible;
     opacity: 0;
   }
   100% {
     opacity: 1;
+    visibility: visible;
   }
 }
 #logos .logo3{

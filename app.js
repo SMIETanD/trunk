@@ -24,8 +24,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(busboy());
 app.use(session({
-    resave: false, //添加 resave 选项
-    saveUninitialized: true, //添加 saveUninitialized 选项
+    resave: false,
+    saveUninitialized: true,
     secret: 'recommand 128 bytes random string', // 建议使用 128 个字符的随机字符串
     cookie: { maxAge: 60 * 1000 }
 }));
@@ -33,8 +33,8 @@ app.use(express.static(path.join(__dirname, 'app')));
 
 app.use('/', routes);
 
-server.listen(app.get('port'), function () {
-    console.log('Express server listening on port ' + app.get('port'));
-});
+//server.listen(app.get('port'), function () {
+//    console.log('Express server listening on port ' + app.get('port'));
+//});
 
 module.exports = app;
