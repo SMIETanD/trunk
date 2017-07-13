@@ -33,6 +33,8 @@ exports.open = function(req, res, next) {
 				//将数据写入文件中
 				var buffer = xlsx.build([{name: "mySheetName", data: data}]);
 				fs.writeFileSync('./A_GIVEN_B_BLANK.xlsx', buffer, 'binary');
+                down('./A_GIVEN_B_BLANK.xlsx','A_GIVEN_B_BLANK.xlsx');
+                fs.unlinkSync('./A_GIVEN_B_BLANK.xlsx');
 			});
 			break;
 		case "agbc":
@@ -48,6 +50,8 @@ exports.open = function(req, res, next) {
 				}
 				var buffer = xlsx.build([{name: "mySheetName", data: data}]);
 				fs.writeFileSync('./A_GIVEN_B_CLOZE.xlsx', buffer, 'binary');
+                down('./A_GIVEN_B_CLOZE.xlsx','A_GIVEN_B_CLOZE.xlsx');
+                fs.unlinkSync('./A_GIVEN_B_CLOZE.xlsx');
 			});
 			break;
 		case "acbg":
@@ -63,6 +67,8 @@ exports.open = function(req, res, next) {
 				}
 				var buffer = xlsx.build([{name: "mySheetName", data: data}]);
 				fs.writeFileSync('./A_CLOZE_B_GIVEN.xlsx', buffer, 'binary');
+                down('./A_CLOZE_B_GIVEN.xlsx','A_CLOZE_B_GIVEN.xlsx');
+                fs.unlinkSync('./A_CLOZE_B_GIVEN.xlsx');
 			});
 			break;
 		case "unscr":
@@ -79,6 +85,8 @@ exports.open = function(req, res, next) {
 				}
 				var buffer = xlsx.build([{name: "mySheetName", data: data}]);
 				fs.writeFileSync('./UNSCRAMBLE.xlsx', buffer, 'binary');
+                down('./UNSCRAMBLE.xlsx','UNSCRAMBLE.xlsx');
+                fs.unlinkSync('./UNSCRAMBLE.xlsx');
 			});
 			break;
 		case "l_n_m":
@@ -94,6 +102,8 @@ exports.open = function(req, res, next) {
 				}
 				var buffer = xlsx.build([{name: "mySheetName", data: data}]);
 				fs.writeFileSync('./LETTER_NUMBER_MATCH.xlsx', buffer, 'binary');
+                down('./LETTER_NUMBER_MATCH.xlsx','LETTER_NUMBER_MATCH.xlsx');
+                fs.unlinkSync('./LETTER_NUMBER_MATCH.xlsx');
 			});
 			break;
 		case "multichoice":
@@ -109,6 +119,8 @@ exports.open = function(req, res, next) {
 				}
 				var buffer = xlsx.build([{name: "mySheetName", data: data}]);
 				fs.writeFileSync('./MULTIPLE_CHOICE.xlsx', buffer, 'binary');
+                down('./MULTIPLE_CHOICE.xlsx','MULTIPLE_CHOICE.xlsx');
+                fs.unlinkSync('./MULTIPLE_CHOICE.xlsx');
 			});
 			break;
 		case "muc":
@@ -125,6 +137,8 @@ exports.open = function(req, res, next) {
 				}
 				var buffer = xlsx.build([{name: "mySheetName", data: data}]);
 				fs.writeFileSync('./MATCHUPCLICK.xlsx', buffer, 'binary');
+                down('./MATCHUPCLICK.xlsx','MATCHUPCLICK.xlsx');
+                fs.unlinkSync('./MATCHUPCLICK.xlsx');
 			});
 			break;
 		case "user":
@@ -137,12 +151,27 @@ exports.open = function(req, res, next) {
 					data.push(tmp);
 				}
 				var buffer = xlsx.build([{name: "mySheetName", data: data}]);
-				fs.writeFileSync('./Users.xlsx', buffer, 'binary');
+				//fs.writeFileSync('./Users.xlsx', buffer, 'binary');
+                fs.writeFileSync('./Users.xlsx', buffer, 'binary');
+                down('./Users.xlsx','Users.xlsx');
+                fs.unlinkSync('./Users.xlsx');
 			});
 			break;
 	}
-	
-	res.send('export successfully!');
+    function down(filePath,fileName){
+        var stats = fs.statSync(filePath);
+        if(stats.isFile()){
+            res.set({
+                'Content-Type': 'application/octet-stream',
+                'Content-Disposition': 'attachment; filename='+fileName
+            });
+            fs.createReadStream(filePath).pipe(res);
+        } else {
+            res.send('export fail!');
+        }
+	}
+
+
 };
 
 exports.upload = function(req, res) {
@@ -198,7 +227,7 @@ exports.upload = function(req, res) {
                     res.redirect('/init_mc');
                 })
             }
-        })
+        });
     });
 
     req.pipe(req.busboy);
