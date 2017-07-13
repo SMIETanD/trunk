@@ -149,55 +149,57 @@ exports.upload = function(req, res) {
 	if(!/multipart\/form-data/i.test(req.headers['content-type'])){
 		return res.end('wrong');
 	}
-	var fstream;
-	console.log(1);
-    req.pipe(req.busboy);
     req.busboy.on('file', function (fieldname, file, filename) {
         console.log("Uploading: " + filename);
         //存储文件在服务器中，再直接访问导入数据的路径，这样导入时读取的是新文件而不是旧文件
-        fstream = fs.createWriteStream('./app/excel/' + filename);
-        if (filename == 'A_GIVEN_B_CLOZE.xlsx') {
-        	var aggbModel = mongoose.model('a_given_b_cloze');
-			aggbModel.remove({}, function(err) {
-				res.redirect('/init_agbc');
-			});
-        }
-        else if (filename == 'A_GIVEN_B_BLANK.xlsx') {
-        	var agbbModel = mongoose.model('a_given_b_blank');
-			aggbModel.remove({}, function(err) {
-				res.redirect('/init_aggb');
-			});
-        }
-        else if (filename == 'UNSCRAMBLE.xlsx') {
-        	var usc = mongoose.model('unscramble');
-        	usc.remove({}, function(err) {
-        		res.redirect('/init');
-        	});
-        }
-        else if (filename == 'A_CLOZE_B_GIVEN.xlsx') {
-        	var acbg = mongoose.model('a_cloze_b_given');
-        	acbg.remove({}, function(err) {
-        		res.redirect('/init_acbg');
-        	});
-        }
-        else if (filename == 'MATCHUPCLICK.xlsx') {
-        	var muc = mongoose.model('matchupclick');
-        	muc.remove({}, function(err) {
-        		res.redirect('/init_muc');
-        	});
-        }
-        else if (filename == 'LETTER_NUMBER_MATCH.xlsx') {
-        	var lnm = mongoose.model('letter_number_match');
-        	lnm.remove({}, function(err) {
-        		res.redirect('/init_letter');
-        	});
-        }
-        else if (filename == 'MULTIPLE_CHOICE.xlsx') {
-        	var mc = mongoose.model('multiple_choice');
-        	mc.remove({}, function() {
-        		res.redirect('/init_mc');
-        	})
-        }
+        file.pipe(fs.createWriteStream('../app/excel/' + filename));
+        file.on('end', function () {
+            if (filename == 'A_GIVEN_B_CLOZE.xlsx') {
+                var agbcModel = mongoose.model('a_given_b_cloze');
+                agbcModel.remove({}, function (err) {
+                    res.redirect('/init_agbc');
+                });
+            }
+            else if (filename == 'A_GIVEN_B_BLANK.xlsx') {
+            	console.log("update the database");
+                var agbbModel = mongoose.model('a_given_b_blank');
+                agbbModel.remove({}, function (err) {
+                    console.log("remove the docs");
+                    res.redirect('/init_aggb');
+                });
+            }
+            else if (filename == 'UNSCRAMBLE.xlsx') {
+                var usc = mongoose.model('unscramble');
+                usc.remove({}, function (err) {
+                    res.redirect('/init');
+                });
+            }
+            else if (filename == 'A_CLOZE_B_GIVEN.xlsx') {
+                var acbg = mongoose.model('a_cloze_b_given');
+                acbg.remove({}, function (err) {
+                    res.redirect('/init_acbg');
+                });
+            }
+            else if (filename == 'MATCHUPCLICK.xlsx') {
+                var muc = mongoose.model('matchupclick');
+                muc.remove({}, function (err) {
+                    res.redirect('/init_muc');
+                });
+            }
+            else if (filename == 'LETTER_NUMBER_MATCH.xlsx') {
+                var lnm = mongoose.model('letter_number_match');
+                lnm.remove({}, function (err) {
+                    res.redirect('/init_letter');
+                });
+            }
+            else if (filename == 'MULTIPLE_CHOICE.xlsx') {
+                var mc = mongoose.model('multiple_choice');
+                mc.remove({}, function () {
+                    res.redirect('/init_mc');
+                })
+            }
+        })
     });
-	
+
+    req.pipe(req.busboy);
 } 

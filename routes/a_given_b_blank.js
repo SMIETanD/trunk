@@ -36,6 +36,11 @@ var data = obj[0].data;
 var i = 1;
 
 exports.init = function(req, res) {
+    obj = xlsx.parse(name + "/app/excel/A_GIVEN_B_BLANK.xlsx");
+    data = obj[0].data;
+    i = 1;
+    console.log("agbb's init,data length:" + data.length);
+
 	var set_tmp = 0;
 	var comment_tmp = "dsa";
 	//表格格式处理
