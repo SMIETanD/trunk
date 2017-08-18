@@ -45,8 +45,8 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
-              <caret line="25" column="17" lean-forward="true" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
+            <state relative-caret-position="330">
+              <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -161,8 +161,8 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="517" />
-    <option name="y" value="353" />
+    <option name="x" value="627" />
+    <option name="y" value="153" />
     <option name="width" value="1382" />
     <option name="height" value="744" />
   </component>
@@ -331,7 +331,7 @@
       <workItem from="1499943058818" duration="8396000" />
       <workItem from="1499960848626" duration="3798000" />
       <workItem from="1499966036801" duration="5543000" />
-      <workItem from="1503047792363" duration="47000" />
+      <workItem from="1503047792363" duration="186000" />
     </task>
     <task id="LOCAL-00001" summary="comments and .gitignore file">
       <created>1499762289404</created>
@@ -368,14 +368,21 @@
       <option name="project" value="LOCAL" />
       <updated>1499971879435</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="test00">
+      <created>1503047857434</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1503047857434</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37647000" />
+    <option name="totallyTimeSpent" value="37786000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="517" y="353" width="1382" height="744" extended-state="0" />
+    <frame x="627" y="153" width="1382" height="744" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19122024" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -435,7 +442,8 @@
     <MESSAGE value="move .gitignore file" />
     <MESSAGE value="add augenblick's shadow" />
     <MESSAGE value="implement the upload functions" />
-    <option name="LAST_COMMIT_MESSAGE" value="implement the upload functions" />
+    <MESSAGE value="test00" />
+    <option name="LAST_COMMIT_MESSAGE" value="test00" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -727,8 +735,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="25" column="17" lean-forward="true" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
+        <state relative-caret-position="330">
+          <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding />
         </state>
       </provider>
